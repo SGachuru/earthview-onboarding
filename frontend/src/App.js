@@ -1,14 +1,43 @@
-const express = require('express');
-const cors = require('cors');
-const authRoutes = require('./routes/authRoutes');
-const customerRoutes = require('./routes/customerRoutes');
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import { useAuth } from './context/AuthContext';
+import Navbar from './components/Navbar';
+import ProtectedRoute from './components/ProtectedRoute';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import CustomerList from './pages/CustomerList';
+import CustomerDetails from './pages/CustomerDetails';
+import CustomerForm from './pages/CustomerForm';
+import './App.css';
 
-const app = express();
+const AppContent = () => {
+  const { user } = useAuth();
 
-app.use(cors());
-app.use(express.json());
+  return (
+    <>
+      {user && <Navbar />}
+      <main className={user ? 'main-content' : ''}>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/customers" element={<ProtectedRoute><CustomerList /></ProtectedRoute>} />
+          <Route path="/customers/new" element={<ProtectedRoute><CustomerForm /></ProtectedRoute>} />
+          <Route path="/customers/:id" element={<ProtectedRoute><CustomerDetails /></ProtectedRoute>} />
+        </Routes>
+      </main>
+    </>
+  );
+};
 
-app.use('/api/auth', authRoutes);
-app.use('/api/customers', customerRoutes);
+const App = () => {
+  return (
+    <AuthProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </AuthProvider>
+  );
+};
 
-module.exports = app;
+export default App;
