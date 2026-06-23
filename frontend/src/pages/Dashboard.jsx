@@ -14,16 +14,16 @@ const Dashboard = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    const fetchStats = async () => {
-      try {
-        const response = await api.get('/dashboard/stats');
-        setStats(response.data);
-      } catch (error) {
-        console.error('Failed to fetch stats:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+const fetchStats = async () => {
+       try {
+         const response = await api.get('/customers/stats');
+         setStats(response.data);
+       } catch (error) {
+         console.error('Failed to fetch stats:', error);
+       } finally {
+         setLoading(false);
+       }
+     };
     fetchStats();
   }, []);
 

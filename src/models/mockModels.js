@@ -75,5 +75,11 @@ module.exports = {
       customers.push(c);
       return c;
     },
+    getStats: async () => {
+      const totalCustomers = customers.length;
+      const pendingOnboarding = customers.filter(c => c.status === 'pending').length;
+      const completedOnboarding = customers.filter(c => c.status === 'completed').length;
+      return { totalCustomers, pendingOnboarding, completedOnboarding };
+    },
   },
 };

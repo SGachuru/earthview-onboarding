@@ -15,7 +15,7 @@ const CustomerList = () => {
   const fetchCustomers = async () => {
     try {
       const response = await api.get('/customers');
-      setCustomers(response.data);
+      setCustomers(response.data.data);
     } catch (err) {
       setError('Failed to fetch customers');
     } finally {

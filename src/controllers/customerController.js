@@ -37,4 +37,4 @@ const deleteCustomer = async (req, res) => {
   res.json({ success: true, data: {} });
 };
 
-module.exports = { getAllCustomers, getCustomerById, createCustomer, updateCustomer, deleteCustomer };
+module.exports = { getAllCustomers, getCustomerById, createCustomer, updateCustomer, deleteCustomer, getStats };

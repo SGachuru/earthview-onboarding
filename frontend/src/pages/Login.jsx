@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './Login.css';
 
@@ -54,9 +54,6 @@ const Login = () => {
         <button type="submit" disabled={loading} className="submit-btn">
           {loading ? 'Logging in...' : 'Login'}
         </button>
-        <p className="register-link">
-          Don't have an account? <Link to="/register">Register</Link>
-        </p>
       </form>
     </div>
   );
