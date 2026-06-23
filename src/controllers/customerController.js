@@ -37,4 +37,9 @@ const deleteCustomer = async (req, res) => {
   res.json({ success: true, data: {} });
 };
 
+const getStats = async (req, res) => {
+  const stats = await models.Customer.getStats();
+  res.json({ success: true, data: stats });
+};
+
 module.exports = { getAllCustomers, getCustomerById, createCustomer, updateCustomer, deleteCustomer, getStats };
