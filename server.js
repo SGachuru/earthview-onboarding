@@ -1,4 +1,4 @@
-﻿const path = require('path');
+const path = require('path');
 const express = require('express');
 const app = require('./src/app');
 const connectDB = require('./src/config/db');
@@ -15,9 +15,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const server = app.listen(PORT, () => {
-  console.log(Server running in  mode on port );
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
 });
 process.on('unhandledRejection', (err) => {
-  console.log(Error: );
+  console.log(`Error: ${err.message}`);
   server.close(() => process.exit(1));
 });
