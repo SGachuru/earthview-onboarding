@@ -1,5 +1,22 @@
+const bcrypt = require('bcryptjs');
+
 const users = [];
 const customers = [];
+
+const seedAdmin = () => {
+  const adminExists = users.some((u) => u.email === 'admin');
+  if (!adminExists) {
+    users.push({
+      _id: '1',
+      name: 'Admin',
+      email: 'admin',
+      password: bcrypt.hashSync('admin', 10),
+      role: 'admin',
+    });
+  }
+};
+
+seedAdmin();
 
 const create = async ({ name, email, password, role }) => {
   const user = {
