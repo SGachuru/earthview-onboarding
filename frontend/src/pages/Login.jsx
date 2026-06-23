@@ -30,6 +30,7 @@ const Login = () => {
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Login</h2>
+        <div className="test-hint">Test credentials — <strong>admin</strong> / <strong>admin</strong></div>
         {error && <div className="error">{error}</div>}
         <div className="form-group">
           <label htmlFor="email">Email</label>
