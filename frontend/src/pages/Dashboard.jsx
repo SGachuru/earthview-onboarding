@@ -57,6 +57,10 @@ const fetchStats = async () => {
           <h3>Add Customer</h3>
           <p>Start new onboarding</p>
         </Link>
+        <Link to="/onboarding" className="action-card">
+          <h3>Onboarding Form</h3>
+          <p>Submit a new onboarding request</p>
+        </Link>
       </div>
     </div>
   );

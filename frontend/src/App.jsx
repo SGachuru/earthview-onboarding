@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import CustomerList from './pages/CustomerList';
 import CustomerDetails from './pages/CustomerDetails';
 import CustomerForm from './pages/CustomerForm';
+import OnboardingForm from './pages/OnboardingForm';
 import './App.css';
 
 const AppContent = () => {
@@ -23,6 +24,7 @@ const AppContent = () => {
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path="/customers" element={<ProtectedRoute><CustomerList /></ProtectedRoute>} />
           <Route path="/customers/new" element={<ProtectedRoute><CustomerForm /></ProtectedRoute>} />
+          <Route path="/onboarding" element={<ProtectedRoute><OnboardingForm /></ProtectedRoute>} />
           <Route path="/customers/:id" element={<ProtectedRoute><CustomerDetails /></ProtectedRoute>} />
         </Routes>
       </main>
