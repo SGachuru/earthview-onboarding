@@ -43,7 +43,7 @@ const CustomerList = () => {
     <div className="customer-list-container">
       <div className="list-header">
         <h2>Customers</h2>
-        <Link to="/customers/new" className="add-btn">Add Customer</Link>
+        <Link to="/onboarding" className="add-btn">Onboarding</Link>
       </div>
       {error && <div className="error">{error}</div>}
       {customers.length === 0 ? (
