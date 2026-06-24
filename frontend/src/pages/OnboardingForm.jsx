@@ -28,8 +28,10 @@ const initialState = {
 const OnboardingForm = () => {
   const [formData, setFormData] = useState(initialState);
   const [error, setError] = useState('');
+  const [geoError, setGeoError] = useState('');
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [locationLoading, setLocationLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -38,6 +40,36 @@ const OnboardingForm = () => {
       ...current,
       [name]: type === 'checkbox' ? checked : value,
     }));
+  };
+
+  const handleUseLocation = () => {
+    setGeoError('');
+
+    if (!navigator.geolocation) {
+      setGeoError('Geolocation is not supported by this device.');
+      return;
+    }
+
+    setLocationLoading(true);
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setFormData((current) => ({
+          ...current,
+          latitude: position.coords.latitude.toFixed(6),
+          longitude: position.coords.longitude.toFixed(6),
+        }));
+        setLocationLoading(false);
+      },
+      (err) => {
+        setLocationLoading(false);
+        setGeoError('Unable to detect location. Please allow device location access.');
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 15000,
+        maximumAge: 0,
+      }
+    );
   };
 
   const handleSubmit = async (e) => {
@@ -214,13 +246,40 @@ const OnboardingForm = () => {
               <span className="item-number">7.</span>
               <div className="item-content">
                 <label>Coordinates (Latitude, Longitude)</label>
-                <input
-                  type="text"
-                  name="latitude"
-                  value={formData.latitude}
-                  onChange={handleChange}
-                  placeholder="Latitude, Longitude"
-                />
+                <div className="coordinate-row">
+                  <div className="coordinate-field">
+                    <span className="sub-label">Latitude</span>
+                    <input
+                      type="text"
+                      name="latitude"
+                      value={formData.latitude}
+                      onChange={handleChange}
+                      placeholder="Latitude"
+                    />
+                  </div>
+                  <div className="coordinate-field">
+                    <span className="sub-label">Longitude</span>
+                    <input
+                      type="text"
+                      name="longitude"
+                      value={formData.longitude}
+                      onChange={handleChange}
+                      placeholder="Longitude"
+                    />
+                  </div>
+                </div>
+                <div className="location-actions">
+                  <button
+                    type="button"
+                    className="location-btn"
+                    onClick={handleUseLocation}
+                    disabled={locationLoading}
+                  >
+                    {locationLoading ? 'Detecting location…' : 'Use device location'}
+                  </button>
+                  <span className="location-note">or enter coordinates manually</span>
+                </div>
+                {geoError && <div className="geo-error">{geoError}</div>}
               </div>
             </div>
           </section>

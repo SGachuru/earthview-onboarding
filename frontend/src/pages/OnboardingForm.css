@@ -196,6 +196,70 @@
   box-shadow: 0 0 0 4px rgba(45, 134, 89, 0.08);
 }
 
+.coordinate-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.coordinate-field {
+  display: grid;
+  gap: 6px;
+}
+
+.coordinate-field .sub-label {
+  font-size: 13px;
+  color: #5a6c7d;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.location-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.location-btn {
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: none;
+  background: #2d8659;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.location-btn:hover:not(:disabled) {
+  background: #216b44;
+  transform: translateY(-1px);
+}
+
+.location-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.location-note {
+  color: #5a6c7d;
+  font-size: 13px;
+}
+
+.geo-error {
+  margin-top: 10px;
+  color: #b91c1c;
+  font-size: 13px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 10px 12px;
+  border-radius: 6px;
+}
+
 /* Sales Representative Section */
 .rep-section {
   margin-top: 40px;
