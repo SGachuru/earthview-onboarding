@@ -10,34 +10,38 @@
 }
 
 .details-header h2 {
-  color: #1a1a2e;
+  color: #2c3e50;
+  font-weight: 700;
 }
 
 .back-btn {
-  background-color: #718096;
-  color: white;
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+  color: #2c3e50;
   padding: 0.6rem 1.2rem;
   border-radius: 6px;
   text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.2s;
+  font-weight: 600;
+  transition: all 0.2s;
+  border: 1px solid #c19a6b;
 }
 
 .back-btn:hover {
-  background-color: #4a5568;
+  background: linear-gradient(135deg, #c19a6b 0%, #b89667 100%);
+  transform: translateY(-1px);
 }
 
 .details-card {
-  background: white;
+  background: #ffffff;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(173, 216, 230, 0.15);
+  border: 1px solid var(--border);
 }
 
 .detail-row {
   display: flex;
   padding: 1rem 0;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--border);
 }
 
 .detail-row:last-child {
@@ -46,11 +50,11 @@
 
 .detail-row .label {
   font-weight: 600;
-  color: #4a5568;
+  color: #2c3e50;
   width: 150px;
   flex-shrink: 0;
 }
 
 .detail-row .value {
-  color: #2d3748;
+  color: #2c3e50;
 }

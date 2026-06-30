@@ -74,12 +74,12 @@ body {
 
 /* Error states */
 .error {
-  background: #fef2f2;
-  color: #dc2626;
+  background: #fff5f5;
+  color: #c44d4d;
   padding: 1rem 1.25rem;
   border-radius: var(--radius);
   margin-bottom: 1rem;
-  border-left: 4px solid #ef4444;
+  border-left: 4px solid #dc2626;
   font-weight: 500;
 }
 
@@ -99,23 +99,25 @@ body {
 }
 
 .btn-primary {
-  background: var(--primary);
-  color: white;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  color: #2c3e50;
+  border: 1px solid #a0d8c8;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: var(--primary-dark);
+  background: linear-gradient(135deg, var(--primary-dark) 0%, #91c2dd 100%);
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
 
 .btn-secondary {
-  background: var(--secondary);
-  color: white;
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+  color: #2c3e50;
+  border: 1px solid #c19a6b;
 }
 
 .btn-secondary:hover {
-  background: #475569;
+  background: linear-gradient(135deg, #c19a6b 0%, #b89667 100%);
 }
 
 .btn-danger {
@@ -124,7 +126,7 @@ body {
 }
 
 .btn-danger:hover {
-  background: #dc2626;
+  background: #c44d4d;
 }
 
 .btn:disabled {
@@ -152,19 +154,22 @@ body {
   width: 100%;
   padding: 0.875rem 1rem;
   border: 2px solid var(--border);
+  border-bottom: 2px solid var(--primary);
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.2s ease;
   font-family: inherit;
   background: var(--surface);
+  color: #2c3e50;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
   outline: none;
+  background: #ffffff;
   border-color: var(--primary);
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+  box-shadow: 0 0 0 4px rgba(184, 224, 210, 0.3);
 }
 
 /* Cards */
@@ -174,6 +179,7 @@ body {
   box-shadow: var(--shadow-sm);
   padding: 1.5rem;
   transition: box-shadow 0.2s ease;
+  border: 1px solid var(--border);
 }
 
 .card:hover {
@@ -196,11 +202,11 @@ body {
 }
 
 .badge-in_progress {
-  background: #dbeafe;
-  color: #2563eb;
+  background: #e0f2fe;
+  color: #0ea5e9;
 }
 
 .badge-completed {
-  background: #dcfce7;
+  background: #f0fff0;
   color: #16a34a;
 }
