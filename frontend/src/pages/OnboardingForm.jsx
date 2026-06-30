@@ -92,163 +92,141 @@ const OnboardingForm = () => {
 
   return (
     <div className="onboarding-page">
-      <div className="form-container">
-        {/* Header with Logo and Title */}
-        <div className="form-header">
-          <div className="logo-section">
-            <div className="earthview-logo">EarthView</div>
+      <div className="form-wrapper">
+        <header className="form-header-section">
+          <div className="brand-logo">
+            <span className="logo-icon">●</span>
+            <h1 className="brand-name">EarthView Onboarding</h1>
           </div>
-          <h1>CUSTOMER ONBOARDING INFORMATION FORM (BOREHOLE USER)</h1>
-        </div>
-
-        {/* Date Field */}
-        <div className="date-field">
-          <label>
-            Date: <span className="underline">
-              {new Date(formData.date).toLocaleDateString('en-US', {
-                weekday: 'short',
-                year: 'numeric',
-                month: 'short',
-                day: '2-digit',
-              })}
-            </span>
-          </label>
-          <input
-            type="date"
-            name="date"
-            value={formData.date}
-            onChange={handleChange}
-            style={{ display: 'none' }}
-          />
-        </div>
+          <h2 className="form-title">Customer Onboarding Information Form</h2>
+          <p className="form-subtitle">BOREHOLE USER REGISTRATION</p>
+        </header>
 
         <form className="onboarding-form" onSubmit={handleSubmit}>
-          {/* Customer Details Section */}
-          <section className="form-section">
-            <h2>Customer Details</h2>
+          {/* Date and Reference Info */}
+          <div className="form-meta">
+            <div className="meta-item">
+              <label>Date:</label>
+              <span className="meta-value">
+                {new Date(formData.date).toLocaleDateString('en-US', {
+                  weekday: 'short',
+                  year: 'numeric',
+                  month: 'short',
+                  day: '2-digit',
+                })}
+              </span>
+            </div>
+            <div className="meta-item">
+              <label>Form ID:</label>
+              <span className="meta-value">ONB-{new Date().getFullYear()}-{(Math.random() * 1000).toFixed(0).padStart(3, '0')}</span>
+            </div>
+          </div>
 
-            <div className="form-item">
-              <span className="item-number">1.</span>
-              <div className="item-content">
-                <label>Company/Organization's Name</label>
+          {/* Customer Information Section */}
+          <section className="form-section">
+            <div className="section-header">
+              <span className="section-number">01</span>
+              <h3>Customer Information</h3>
+            </div>
+
+            <div className="form-grid">
+              <div className="form-field">
+                <label htmlFor="company">Company/Organization Name *</label>
                 <input
                   type="text"
+                  id="company"
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
                   required
-                  placeholder="________________________"
+                  placeholder="Enter company name"
                 />
               </div>
-            </div>
 
-            <div className="form-item">
-              <span className="item-number">2.</span>
-              <div className="item-content">
-                <label>Name of System User (Full Name)</label>
-                <div className="name-subfields">
-                  <div className="name-field">
-                    <span className="sub-label">First Name:</span>
-                    <input
-                      type="text"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      required
-                      placeholder="____________"
-                    />
-                  </div>
-                  <div className="name-field">
-                    <span className="sub-label">Middle Name(Optional):</span>
-                    <input
-                      type="text"
-                      name="middleName"
-                      value={formData.middleName}
-                      onChange={handleChange}
-                      placeholder="____________"
-                    />
-                  </div>
-                  <div className="name-field">
-                    <span className="sub-label">Last Name:</span>
-                    <input
-                      type="text"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      required
-                      placeholder="____________"
-                    />
-                  </div>
+              <div className="form-field full-width">
+                <label>Full Name *</label>
+                <div className="name-fields">
+                  <input
+                    type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder="First Name"
+                    required
+                  />
+                  <input
+                    type="text"
+                    name="middleName"
+                    value={formData.middleName}
+                    onChange={handleChange}
+                    placeholder="Middle Name (Optional)"
+                  />
+                  <input
+                    type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    placeholder="Last Name"
+                    required
+                  />
                 </div>
               </div>
-            </div>
 
-            <div className="form-item">
-              <span className="item-number">3.</span>
-              <div className="item-content">
-                <label>Location (Physical Address)</label>
+              <div className="form-field full-width">
+                <label htmlFor="physicalAddress">Physical Address *</label>
                 <input
                   type="text"
+                  id="physicalAddress"
                   name="physicalAddress"
                   value={formData.physicalAddress}
                   onChange={handleChange}
                   required
-                  placeholder="_______________________________"
+                  placeholder="Enter complete physical address"
                 />
               </div>
-            </div>
 
-            <div className="form-item">
-              <span className="item-number">4.</span>
-              <div className="item-content">
-                <label>Email Address</label>
+              <div className="form-field">
+                <label htmlFor="email">Email Address *</label>
                 <input
                   type="email"
+                  id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  placeholder="_______________________________"
+                  placeholder="Enter email address"
                 />
               </div>
-            </div>
 
-            <div className="form-item">
-              <span className="item-number">5.</span>
-              <div className="item-content">
-                <label>Phone Number</label>
+              <div className="form-field">
+                <label htmlFor="phone">Phone Number *</label>
                 <input
                   type="tel"
+                  id="phone"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  placeholder="_______________________________"
+                  placeholder="Enter phone number"
                 />
               </div>
-            </div>
 
-            <div className="form-item">
-              <span className="item-number">6.</span>
-              <div className="item-content">
-                <label>Permit Number</label>
+              <div className="form-field">
+                <label htmlFor="permitNumber">Permit Number</label>
                 <input
                   type="text"
+                  id="permitNumber"
                   name="permitNumber"
                   value={formData.permitNumber}
                   onChange={handleChange}
-                  placeholder="_______________________________"
+                  placeholder="Enter permit number (if applicable)"
                 />
               </div>
-            </div>
 
-            <div className="form-item">
-              <span className="item-number">7.</span>
-              <div className="item-content">
-                <label>Coordinates (Latitude, Longitude)</label>
-                <div className="coordinate-row">
-                  <div className="coordinate-field">
-                    <span className="sub-label">Latitude</span>
+              <div className="form-field full-width">
+                <label>Location Coordinates</label>
+                <div className="coordinates-input">
+                  <div className="coord-group">
                     <input
                       type="text"
                       name="latitude"
@@ -256,9 +234,9 @@ const OnboardingForm = () => {
                       onChange={handleChange}
                       placeholder="Latitude"
                     />
+                    <span className="coord-label">Latitude</span>
                   </div>
-                  <div className="coordinate-field">
-                    <span className="sub-label">Longitude</span>
+                  <div className="coord-group">
                     <input
                       type="text"
                       name="longitude"
@@ -266,18 +244,16 @@ const OnboardingForm = () => {
                       onChange={handleChange}
                       placeholder="Longitude"
                     />
+                    <span className="coord-label">Longitude</span>
                   </div>
-                </div>
-                <div className="location-actions">
                   <button
                     type="button"
                     className="location-btn"
                     onClick={handleUseLocation}
                     disabled={locationLoading}
                   >
-                    {locationLoading ? 'Detecting location…' : 'Use device location'}
+                    {locationLoading ? 'Detecting...' : 'Use Current Location'}
                   </button>
-                  <span className="location-note">or enter coordinates manually</span>
                 </div>
                 {geoError && <div className="geo-error">{geoError}</div>}
               </div>
@@ -285,70 +261,146 @@ const OnboardingForm = () => {
           </section>
 
           {/* Sales Representative Confirmation Section */}
-          <section className="form-section rep-section">
-            <h2>Sales Representative Confirmation</h2>
-            <p className="confirmation-text">
-              I confirm that I have verified the details provided by the customer and approve this
-              onboarding request.
-            </p>
+          <section className="form-section">
+            <div className="section-header">
+              <span className="section-number">02</span>
+              <h3>Sales Representative Confirmation</h3>
+            </div>
 
-            <div className="rep-fields">
-              <div className="rep-field">
-                <label>Name:</label>
+            <div className="confirmation-box">
+              <p className="confirmation-text">
+                I confirm that I have verified the details provided by the customer
+                and approve this onboarding request.
+              </p>
+            </div>
+
+            <div className="form-grid">
+              <div className="form-field">
+                <label htmlFor="salesRepName">Representative Name *</label>
                 <input
                   type="text"
+                  id="salesRepName"
                   name="salesRepName"
                   value={formData.salesRepName}
                   onChange={handleChange}
-                  placeholder="_______________________________"
+                  required
+                  placeholder="Enter your full name"
                 />
               </div>
-              <div className="rep-field">
-                <label>Signature:</label>
+
+              <div className="form-field">
+                <label htmlFor="salesRepSignature">Signature *</label>
                 <input
                   type="text"
+                  id="salesRepSignature"
                   name="salesRepSignature"
                   value={formData.salesRepSignature}
                   onChange={handleChange}
-                  placeholder="_______________________________"
+                  required
+                  placeholder="Enter digital signature"
                 />
               </div>
-              <div className="rep-field">
-                <label>Date:</label>
+
+              <div className="form-field">
+                <label htmlFor="salesRepDate">Confirmation Date *</label>
                 <input
                   type="date"
+                  id="salesRepDate"
                   name="salesRepDate"
                   value={formData.salesRepDate}
                   onChange={handleChange}
+                  required
                 />
               </div>
             </div>
           </section>
 
-          {/* Submit Button */}
-          <div className="button-group">
-            <button type="submit" className="save-button" disabled={loading}>
-              {loading ? 'Submitting...' : 'Submit Form'}
+          {/* Approval Section */}
+          <section className="form-section">
+            <div className="section-header">
+              <span className="section-number">03</span>
+              <h3>Internal Approvals</h3>
+            </div>
+
+            <div className="approval-checkboxes">
+              <label className="checkbox-item">
+                <input
+                  type="checkbox"
+                  name="adminApproval"
+                  checked={formData.adminApproval}
+                  onChange={handleChange}
+                />
+                <span className="checkbox-custom"></span>
+                <span>Admin Approval</span>
+              </label>
+              <label className="checkbox-item">
+                <input
+                  type="checkbox"
+                  name="financeApproval"
+                  checked={formData.financeApproval}
+                  onChange={handleChange}
+                />
+                <span className="checkbox-custom"></span>
+                <span>Finance Approval</span>
+              </label>
+              <label className="checkbox-item">
+                <input
+                  type="checkbox"
+                  name="implementationApproval"
+                  checked={formData.implementationApproval}
+                  onChange={handleChange}
+                />
+                <span className="checkbox-custom"></span>
+                <span>Implementation Approval</span>
+              </label>
+              <label className="checkbox-item">
+                <input
+                  type="checkbox"
+                  name="managingDirectorApproval"
+                  checked={formData.managingDirectorApproval}
+                  onChange={handleChange}
+                />
+                <span className="checkbox-custom"></span>
+                <span>Managing Director Approval</span>
+              </label>
+            </div>
+
+            <div className="form-field full-width">
+              <label htmlFor="comments">Additional Comments</label>
+              <textarea
+                id="comments"
+                name="comments"
+                value={formData.comments}
+                onChange={handleChange}
+                rows="4"
+                placeholder="Enter any additional notes or comments"
+              />
+            </div>
+          </section>
+
+          {/* Actions */}
+          <footer className="form-actions">
+            <button type="submit" className="submit-button" disabled={loading}>
+              {loading ? 'Submitting...' : 'Submit Onboarding Form'}
             </button>
-          </div>
+            <button type="button" className="cancel-button" onClick={() => navigate('/customers')}>
+              Cancel
+            </button>
+          </footer>
 
           {error && <div className="error-message">{error}</div>}
           {success && (
-            <div className="success-message">Onboarding form submitted successfully.</div>
+            <div className="success-message">
+              Onboarding form submitted successfully.
+            </div>
           )}
         </form>
 
-        {/* Footer */}
-        <div className="form-footer">
-          <p>
-            EarthView Management Limited, P.O Box 3002-00506 Nairobi Email: info@earthview.co.ke
-          </p>
-          <p>
-            Phone: +254792332134 Customer care: +254290175080 | Physical Address: Nicholson court,
-            Nicholson drive, Off Njpng Road, Nairobi, Kenya
-          </p>
-          <p>Transforming Lives!</p>
-        </div>
+        <footer className="form-footer">
+          <p>EarthView Management Limited • P.O Box 3002-00506 Nairobi • info@earthview.co.ke</p>
+          <p>Phone: +254792332134 • Customer Care: +254290175080</p>
+          <p className="tagline">Transforming Lives!</p>
+        </footer>
       </div>
     </div>
   );
