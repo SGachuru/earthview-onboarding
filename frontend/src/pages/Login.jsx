@@ -30,8 +30,8 @@ const Login = () => {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        <div className="test-hint">Test credentials — <strong>admin</strong> / <strong>admin</strong></div>
+        <h2>Sign In</h2>
+        <p className="form-subtitle">EarthView Onboarding System</p>
         {error && <div className="error">{error}</div>}
         <div className="form-group">
           <label htmlFor="username">Username</label>
@@ -41,6 +41,7 @@ const Login = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
+            placeholder="Enter your username"
           />
         </div>
         <div className="form-group">
@@ -51,10 +52,11 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            placeholder="Enter your password"
           />
         </div>
         <button type="submit" disabled={loading} className="submit-btn">
-          {loading ? 'Logging in...' : 'Login'}
+          {loading ? 'Logging in...' : 'Sign In'}
         </button>
       </form>
     </div>
