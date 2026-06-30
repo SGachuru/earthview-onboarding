@@ -1,35 +1,51 @@
 .dashboard h1 {
   margin-bottom: 2rem;
-  color: #1a1a2e;
+  color: #2c3e50;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.dashboard .welcome-text {
+  color: #5a6c7d;
+  font-size: 16px;
+  margin-bottom: 2rem;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .stat-card {
   background: white;
-  padding: 1.5rem;
+  padding: 1.75rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  border-left: 4px solid #4a90d9;
+  box-shadow: 0 2px 8px rgba(173, 216, 230, 0.15);
+  border-left: 4px solid #b8e0d2;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(183, 228, 199, 0.25);
 }
 
 .stat-card h3 {
-  font-size: 0.9rem;
-  color: #718096;
+  font-size: 0.85rem;
+  color: #5a6c7d;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.8px;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
 }
 
 .stat-number {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #1a1a2e;
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #2c3e50;
+  letter-spacing: -0.5px;
 }
 
 .dashboard-actions {
@@ -40,26 +56,30 @@
 
 .action-card {
   background: white;
-  padding: 1.5rem;
+  padding: 1.75rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(173, 216, 230, 0.15);
   text-decoration: none;
   color: inherit;
-  transition: transform 0.2s, box-shadow 0.2s;
-  display: block;
+  transition: all 0.2s ease;
+  border: 1px solid #e0f2fe;
 }
 
 .action-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(173, 216, 230, 0.2);
+  border-color: #cce8ff;
 }
 
 .action-card h3 {
-  color: #1a1a2e;
+  color: #2c3e50;
   margin-bottom: 0.5rem;
+  font-size: 17px;
+  font-weight: 700;
 }
 
 .action-card p {
-  color: #718096;
+  color: #5a6c7d;
   font-size: 0.9rem;
+  line-height: 1.5;
 }
