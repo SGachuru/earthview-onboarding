@@ -6,6 +6,7 @@
 npm run dev          # Start both frontend (port 5173) and backend (port 3000)
 npm run start        # Start both in production mode
 npm run dev:mock     # Start both with mock DB (no MongoDB required)
+npm run dev:all      # Start both with mock DB and ngrok tunnel (port 5173)
 ```
 
 ## Individual Services
