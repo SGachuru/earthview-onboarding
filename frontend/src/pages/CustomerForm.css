@@ -5,14 +5,15 @@
 
 .customer-form-container h2 {
   margin-bottom: 1.5rem;
-  color: #2c3e50;
+  color: var(--gray-900);
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
 .customer-form {
-  background: #ffffff;
+  background: white;
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(173, 216, 230, 0.15);
-  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--gray-200);
 }
